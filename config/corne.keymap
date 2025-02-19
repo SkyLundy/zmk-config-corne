@@ -1,4 +1,5 @@
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
 #define DEF 0
@@ -56,18 +57,6 @@
     };
 
     macros {
-        browsertab: browsertab {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LCTRL>,
-                <&macro_tap>,
-                <&kp TAB>,
-                <&macro_release>,
-                <&kp LCTRL>;
-        };
-
         terminal_quake: terminal_quake {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -85,104 +74,319 @@
 
             label = "TERMINAL_QUAKE";
         };
+
+        window_desktop_left: window_desktop_left {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL>,
+                <&macro_press>,
+                <&kp LEFT_ALT>,
+                <&macro_press>,
+                <&kp LEFT_SHIFT>,
+                <&macro_tap>,
+                <&kp LEFT>,
+                <&macro_release>,
+                <&kp LEFT_SHIFT>,
+                <&macro_release>,
+                <&kp LALT>,
+                <&macro_release>,
+                <&kp LCTRL>;
+
+            label = "WINDOW_DESKTOP_LEFT";
+        };
+
+        desktop_left: desktop_left {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL>,
+                <&macro_press>,
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&kp LEFT>,
+                <&macro_release>,
+                <&kp LALT>,
+                <&macro_release>,
+                <&kp LCTRL>;
+
+            label = "DESKTOP_LEFT";
+        };
+
+        desktop_right: desktop_right {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL>,
+                <&macro_press>,
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&kp RIGHT>,
+                <&macro_release>,
+                <&kp LALT>,
+                <&macro_release>,
+                <&kp LCTRL>;
+
+            label = "DESKTOP_RIGHT";
+        };
+
+        window_desktop_right: window_desktop_right {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL>,
+                <&macro_press>,
+                <&kp LEFT_ALT>,
+                <&macro_press>,
+                <&kp LEFT_SHIFT>,
+                <&macro_tap>,
+                <&kp RIGHT>,
+                <&macro_release>,
+                <&kp LEFT_SHIFT>,
+                <&macro_release>,
+                <&kp LALT>,
+                <&macro_release>,
+                <&kp LCTRL>;
+
+            label = "WINDOW_DESKTOP_RIGHT";
+        };
+
+        highlight_word_left: highlight_word {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL>,
+                <&macro_press>,
+                <&kp LSHIFT>,
+                <&macro_tap>,
+                <&kp LEFT>,
+                <&macro_release>,
+                <&kp LSHIFT>,
+                <&macro_release>,
+                <&kp LCTRL>;
+
+            label = "HIGHLIGHT_WORD";
+        };
+
+        highlight_word_right: highlight_word_right {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL>,
+                <&macro_press>,
+                <&kp LSHIFT>,
+                <&macro_tap>,
+                <&kp RIGHT>,
+                <&macro_release>,
+                <&kp LSHIFT>,
+                <&macro_release>,
+                <&kp LCTRL>;
+
+            label = "HIGHLIGHT_WORD_RIGHT";
+        };
+
+        highlight_row: highlight_row {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap>,
+                <&kp HOME>,
+                <&macro_press>,
+                <&kp LSHIFT>,
+                <&macro_tap>,
+                <&kp END>,
+                <&macro_release>,
+                <&kp LSHIFT>;
+
+            label = "HIGHLIGHT_ROW";
+        };
+
+        tab_prev: tab_prev {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL>,
+                <&macro_press>,
+                <&kp LSHIFT>,
+                <&macro_tap>,
+                <&kp TAB>,
+                <&macro_release>,
+                <&kp LSHIFT>,
+                <&macro_release>,
+                <&kp LCTRL>;
+
+            label = "TAB_PREV";
+        };
+
+        tab_next: tab_next {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL>,
+                <&macro_tap>,
+                <&kp TAB>,
+                <&macro_release>,
+                <&kp LCTRL>;
+
+            label = "TAB_NEXT";
+        };
+
+        window_screen_left: window_screen_left {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_GUI>,
+                <&macro_press>,
+                <&kp LSHFT>,
+                <&macro_tap>,
+                <&kp LEFT>,
+                <&macro_release>,
+                <&kp LSHFT>,
+                <&macro_release>,
+                <&kp LEFT_GUI>;
+
+            label = "WINDOW_SCREEN_LEFT";
+        };
+
+        window_screen_right: window_screen_right {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_GUI>,
+                <&macro_press>,
+                <&kp LSHFT>,
+                <&macro_tap>,
+                <&kp RIGHT>,
+                <&macro_release>,
+                <&kp LSHFT>,
+                <&macro_release>,
+                <&kp LEFT_GUI>;
+
+            label = "WINDOW_SCREEN_RIGHT";
+        };
+
+        window_position_left: window_position_left {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_GUI>,
+                <&macro_tap>,
+                <&kp LEFT>,
+                <&macro_release>,
+                <&kp LEFT_GUI>;
+
+            label = "WINDOW_POSITION_LEFT";
+        };
+
+        window_position_right: window_position_right {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_GUI>,
+                <&macro_tap>,
+                <&kp RIGHT>,
+                <&macro_release>,
+                <&kp LEFT_GUI>;
+
+            label = "WINDOW_POSITION_RIGHT";
+        };
+
+        window_maximize: window_maximize {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_GUI>,
+                <&macro_tap>,
+                <&kp UP>,
+                <&macro_release>,
+                <&kp LEFT_GUI>;
+
+            label = "WINDOW_MAXIMIZE";
+        };
+
+        window_restore: window_restore {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_GUI>,
+                <&macro_tap>,
+                <&kp DOWN>,
+                <&macro_release>,
+                <&kp LEFT_GUI>;
+
+            label = "WINDOW_RESTORE";
+        };
+
+        redo: redo {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL>,
+                <&macro_press>,
+                <&kp LEFT_SHIFT>,
+                <&macro_tap>,
+                <&kp Z>,
+                <&macro_release>,
+                <&kp LEFT_SHIFT>,
+                <&macro_release>,
+                <&kp LCTRL>;
+
+            label = "REDO";
+        };
     };
 
     combos {
         compatible = "zmk,combos";
 
-        escape {
-            bindings = <&kp ESCAPE>;
-            key-positions = <13 29>;
-        };
-
-        delete {
-            bindings = <&kp DELETE>;
-            key-positions = <15 21>;
-        };
-
-        perc {
-            bindings = <&kp PERCENT>;
-            key-positions = <5 17>;
-        };
-
-        equal {
-            bindings = <&kp EQUAL>;
-            key-positions = <28 16>;
-        };
-
-        dollar {
-            bindings = <&kp DOLLAR>;
-            key-positions = <4 16>;
-        };
-
-        pound {
-            bindings = <&kp POUND>;
-            key-positions = <3 15>;
-        };
-
-        at {
-            bindings = <&kp AT>;
-            key-positions = <2 14>;
-        };
-
-        backslash {
-            bindings = <&kp BACKSLASH>;
-            key-positions = <26 14>;
-        };
-
         copy {
-            bindings = <&kp K_COPY>;
+            bindings = <&kp K_PASTE>;
             key-positions = <28 27>;
         };
 
         paste {
-            bindings = <&kp K_PASTE>;
+            bindings = <&kp K_COPY>;
             key-positions = <26 27>;
         };
 
-        star {
-            bindings = <&kp STAR>;
-            key-positions = <8 20>;
+        cut {
+            bindings = <&kp K_CUT>;
+            key-positions = <25 26>;
         };
 
-        slash {
-            bindings = <&kp SLASH>;
-            key-positions = <32 20>;
+        play_pause {
+            bindings = <&kp K_PLAY_PAUSE>;
+            key-positions = <16 15>;
+            layers = <3>;
         };
 
-        plus {
-            bindings = <&kp PLUS>;
-            key-positions = <7 19>;
+        esc {
+            bindings = <&kp ESC>;
+            key-positions = <38 39>;
         };
 
-        minus {
-            bindings = <&kp KP_MINUS>;
-            key-positions = <31 19>;
+        lshift {
+            bindings = <&kp LEFT_SHIFT>;
+            key-positions = <37 38>;
         };
 
-        underscore {
-            bindings = <&kp UNDER>;
-            key-positions = <30 18>;
-        };
-
-        leftbrack {
-            bindings = <&kp LEFT_BRACKET>;
-            key-positions = <31 32>;
-        };
-
-        rightbrack {
-            bindings = <&kp RIGHT_BRACKET>;
-            key-positions = <33 32>;
-        };
-
-        para-less {
-            bindings = <&paraless>;
-            key-positions = <20 19>;
-        };
-
-        para-great {
-            bindings = <&paragreat>;
-            key-positions = <20 21>;
+        l4 {
+            bindings = <&mo 4>;
+            key-positions = <39 40>;
         };
     };
 
@@ -235,30 +439,30 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&trans  &trans      &kp K_BACK  &kp K_FORWARD  &kp K_REFRESH  &kp K_CALCULATOR    &trans          &trans          &trans        &trans     &kp PAGE_UP    &trans
-&trans  &trans      &trans      &trans         &trans         &trans              &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT  &kp HOME       &kp END
-&trans  &kp K_UNDO  &kp K_CUT   &kp K_COPY     &kp K_PASTE    &kp TILDE           &trans          &trans          &trans        &trans     &kp PAGE_DOWN  &trans
-                                &trans         &trans         &trans              &trans          &trans          &trans
+&trans  &trans      &kp K_BACK  &kp K_FORWARD  &kp K_REFRESH  &kp K_CALCULATOR    &trans          &highlight_word_left  &highlight_word_right  &highlight_row  &kp PAGE_UP    &kp DEL
+&trans  &trans      &tab_prev   &tab_next      &trans         &trans              &kp LEFT_ARROW  &kp DOWN_ARROW        &kp UP_ARROW           &kp RIGHT       &kp HOME       &kp END
+&trans  &kp K_UNDO  &kp K_CUT   &kp K_COPY     &kp K_PASTE    &trans              &trans          &trans                &trans                 &trans          &kp PAGE_DOWN  &trans
+                                &trans         &trans         &trans              &trans          &trans                &trans
             >;
         };
 
         SYS {
             display-name = "System";
             bindings = <
-&kp F1  &kp F2         &kp F3          &kp F4            &kp F5      &kp F6          &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12
-&trans  &kp C_BRI_INC  &kp K_PREVIOUS  &kp K_PLAY_PAUSE  &kp K_NEXT  &kp C_VOL_UP    &trans  &trans  &trans  &trans   &trans   &kp PRINTSCREEN
-&trans  &kp C_BRI_DEC  &trans          &trans            &trans      &kp C_VOL_DN    &trans  &trans  &trans  &trans   &trans   &trans
-                                       &trans            &trans      &trans          &trans  &trans  &trans
+&kp F1  &kp F2         &kp F3  &kp F4      &kp F5      &kp F6          &kp F7                &kp F8                 &kp F9                  &kp F10                &kp F11           &kp F12
+&trans  &kp C_BRI_INC  &trans  &kp K_PREV  &kp K_NEXT  &kp C_VOL_UP    &window_screen_left   &window_position_left  &window_position_right  &window_screen_right   &window_maximize  &kp PRINTSCREEN
+&trans  &kp C_BRI_DEC  &trans  &trans      &trans      &kp C_VOL_DN    &window_desktop_left  &desktop_left          &desktop_right          &window_desktop_right  &window_restore   &trans
+                               &trans      &trans      &trans          &trans                &trans                 &trans
             >;
         };
 
-        EXTRA {
+        BOARD {
             display-name = "extra";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans       &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans       &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &bootloader  &trans
-                        &trans  &trans  &trans    &trans  &trans  &trans
+&trans  &trans  &trans  &bt BT_PRV  &bt BT_NXT  &trans    &trans  &trans  &trans  &trans  &trans       &trans
+&trans  &trans  &trans  &trans      &trans      &trans    &trans  &trans  &trans  &trans  &trans       &trans
+&trans  &trans  &trans  &trans      &trans      &trans    &trans  &trans  &trans  &trans  &bootloader  &trans
+                        &trans      &trans      &trans    &trans  &trans  &trans
             >;
         };
     };
