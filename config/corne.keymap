@@ -356,27 +356,25 @@
         copy {
             bindings = <&kp K_PASTE>;
             key-positions = <28 27>;
+            layers = <2>;
         };
 
         paste {
             bindings = <&kp K_COPY>;
             key-positions = <26 27>;
+            layers = <2>;
         };
 
         cut {
             bindings = <&kp K_CUT>;
             key-positions = <25 26>;
+            layers = <2>;
         };
 
         play_pause {
             bindings = <&kp K_PLAY_PAUSE>;
             key-positions = <16 15>;
             layers = <3>;
-        };
-
-        esc {
-            bindings = <&kp ESC>;
-            key-positions = <38 39>;
         };
 
         lshift {
@@ -386,7 +384,19 @@
 
         l4 {
             bindings = <&mo 4>;
-            key-positions = <39 40>;
+            key-positions = <39 38>;
+        };
+
+        home {
+            bindings = <&kp HOME>;
+            key-positions = <18 19>;
+            layers = <2>;
+        };
+
+        end {
+            bindings = <&kp END>;
+            key-positions = <20 21>;
+            layers = <2>;
         };
     };
 
@@ -405,10 +415,10 @@
             // | GUI | CTRL | SHFT | LWR | SPC |   | ENT | RSE  | BKSP | ALT | ESC |
 
             bindings = <
-&kp TAB    &kp Q  &kp W  &kp E         &kp R  &kp T      &kp Y      &kp U      &kp I         &kp O    &kp P     &kp BACKSPACE
-&kp LSHFT  &kp A  &kp S  &kp D         &kp F  &kp G      &kp H      &kp J      &kp K         &kp L    &kp SEMI  &kp SQT
-&kp LCTRL  &kp Z  &kp X  &kp C         &kp V  &kp B      &kp N      &kp M      &kp COMMA     &kp DOT  &kp FSLH  &kp ESC
-                         &kp LEFT_ALT  &mo 1  &kp RET    &kp SPACE  &lt 2 TAB  &kp LEFT_WIN
+&kp TAB    &kp Q  &kp W  &kp E         &kp R  &kp T      &kp Y      &kp U      &kp I      &kp O    &kp P     &kp BACKSPACE
+&kp LSHFT  &kp A  &kp S  &kp D         &kp F  &kp G      &kp H      &kp J      &kp K      &kp L    &kp SEMI  &kp SQT
+&kp LCTRL  &kp Z  &kp X  &kp C         &kp V  &kp B      &kp N      &kp M      &kp COMMA  &kp DOT  &kp FSLH  &kp ESC
+                         &kp LEFT_ALT  &mo 1  &kp RET    &kp SPACE  &lt 2 TAB  &kp ESC
             >;
         };
 
@@ -422,10 +432,10 @@
             // | GUI | CTRL | SHFT | LWR | SPC |   | ENT | RSE  | BKSP | ALT | ESC |
 
             bindings = <
-&kp GRAVE  &kp N1    &kp N2    &kp N3    &kp N4    &kp N5       &kp N6           &kp N7    &kp N8    &kp N9     &kp N0     &kp DEL
-&trans     &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET        &kp AMPS  &kp STAR  &kp MINUS  &kp EQUAL  &kp BACKSLASH
-&trans     &trans    &kp LBKT  &kp LPAR  &kp LBRC  &trans       &trans           &kp RBRC  &kp RPAR  &kp RBKT   &trans     &trans
-                               &trans    &trans    &trans       &terminal_quake  &trans    &trans
+&kp GRAVE  &kp N1    &kp N2    &kp N3    &kp N4    &kp N5       &kp N6           &kp N7    &kp N8        &kp N9     &kp N0         &kp DEL
+&trans     &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET        &kp AMPS  &kp STAR      &kp MINUS  &kp EQUAL      &kp BACKSLASH
+&trans     &none     &kp LBKT  &kp LPAR  &kp LBRC  &none        &none            &kp RBRC  &kp RPAR      &kp RBKT   &kp BACKSLASH  &none
+                               &trans    &trans    &trans       &terminal_quake  &trans    &kp LEFT_GUI
             >;
         };
 
@@ -439,9 +449,9 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&trans  &trans      &kp K_BACK  &kp K_FORWARD  &kp K_REFRESH  &kp K_CALCULATOR    &trans          &highlight_word_left  &highlight_word_right  &highlight_row  &kp PAGE_UP    &kp DEL
-&trans  &trans      &tab_prev   &tab_next      &trans         &trans              &kp LEFT_ARROW  &kp DOWN_ARROW        &kp UP_ARROW           &kp RIGHT       &kp HOME       &kp END
-&trans  &kp K_UNDO  &kp K_CUT   &kp K_COPY     &kp K_PASTE    &trans              &trans          &trans                &trans                 &trans          &kp PAGE_DOWN  &trans
+&trans  &none       &kp K_BACK  &kp K_FORWARD  &kp K_REFRESH  &kp K_CALCULATOR    &none           &highlight_word_left  &highlight_word_right  &highlight_row  &none  &kp DEL
+&trans  &none       &tab_prev   &tab_next      &none          &none               &kp LEFT_ARROW  &kp DOWN_ARROW        &kp UP_ARROW           &kp RIGHT       &none  &none
+&trans  &kp K_UNDO  &kp K_CUT   &kp K_COPY     &kp K_PASTE    &none               &none           &kp PAGE_DOWN         &kp PAGE_UP            &none           &none  &none
                                 &trans         &trans         &trans              &trans          &trans                &trans
             >;
         };
@@ -450,19 +460,19 @@
             display-name = "System";
             bindings = <
 &kp F1  &kp F2         &kp F3  &kp F4      &kp F5      &kp F6          &kp F7                &kp F8                 &kp F9                  &kp F10                &kp F11           &kp F12
-&trans  &kp C_BRI_INC  &trans  &kp K_PREV  &kp K_NEXT  &kp C_VOL_UP    &window_screen_left   &window_position_left  &window_position_right  &window_screen_right   &window_maximize  &kp PRINTSCREEN
-&trans  &kp C_BRI_DEC  &trans  &trans      &trans      &kp C_VOL_DN    &window_desktop_left  &desktop_left          &desktop_right          &window_desktop_right  &window_restore   &trans
-                               &trans      &trans      &trans          &trans                &trans                 &trans
+&none   &kp C_BRI_INC  &none   &kp K_PREV  &kp K_NEXT  &kp C_VOL_UP    &window_screen_left   &window_position_left  &window_position_right  &window_screen_right   &window_maximize  &kp PRINTSCREEN
+&none   &kp C_BRI_DEC  &none   &none       &none       &kp C_VOL_DN    &window_desktop_left  &desktop_left          &desktop_right          &window_desktop_right  &window_restore   &none
+                               &none       &trans      &none           &none                 &trans                 &none
             >;
         };
 
         BOARD {
             display-name = "extra";
             bindings = <
-&trans  &trans  &trans  &bt BT_PRV  &bt BT_NXT  &trans    &trans  &trans  &trans  &trans  &trans       &trans
-&trans  &trans  &trans  &trans      &trans      &trans    &trans  &trans  &trans  &trans  &trans       &trans
-&trans  &trans  &trans  &trans      &trans      &trans    &trans  &trans  &trans  &trans  &bootloader  &trans
-                        &trans      &trans      &trans    &trans  &trans  &trans
+&none  &none  &none  &bt BT_PRV  &bt BT_NXT  &none    &none  &none   &none  &none  &none        &none
+&none  &none  &none  &none       &none       &none    &none  &none   &none  &none  &none        &none
+&none  &none  &none  &none       &none       &none    &none  &none   &none  &none  &bootloader  &none
+                     &none       &trans      &none    &none  &trans  &none
             >;
         };
     };
