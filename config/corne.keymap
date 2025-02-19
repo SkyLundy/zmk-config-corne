@@ -386,18 +386,6 @@
             bindings = <&mo 4>;
             key-positions = <39 38>;
         };
-
-        home {
-            bindings = <&kp HOME>;
-            key-positions = <18 19>;
-            layers = <2>;
-        };
-
-        end {
-            bindings = <&kp END>;
-            key-positions = <20 21>;
-            layers = <2>;
-        };
     };
 
     //
@@ -415,10 +403,10 @@
             // | GUI | CTRL | SHFT | LWR | SPC |   | ENT | RSE  | BKSP | ALT | ESC |
 
             bindings = <
-&kp TAB    &kp Q  &kp W  &kp E         &kp R  &kp T      &kp Y      &kp U      &kp I      &kp O    &kp P     &kp BACKSPACE
-&kp LSHFT  &kp A  &kp S  &kp D         &kp F  &kp G      &kp H      &kp J      &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LCTRL  &kp Z  &kp X  &kp C         &kp V  &kp B      &kp N      &kp M      &kp COMMA  &kp DOT  &kp FSLH  &kp ESC
-                         &kp LEFT_ALT  &mo 1  &kp RET    &kp SPACE  &lt 2 TAB  &kp ESC
+&kp TAB    &kp Q  &kp W  &kp E         &kp R  &kp T      &kp Y      &kp U  &kp I      &kp O    &kp P     &kp BACKSPACE
+&kp LSHFT  &kp A  &kp S  &kp D         &kp F  &kp G      &kp H      &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
+&kp LCTRL  &kp Z  &kp X  &kp C         &kp V  &kp B      &kp N      &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp ESC
+                         &kp LEFT_ALT  &mo 1  &kp RET    &kp SPACE  &mo 2  &kp ESC
             >;
         };
 
@@ -449,10 +437,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&trans  &none       &kp K_BACK  &kp K_FORWARD  &kp K_REFRESH  &kp K_CALCULATOR    &none           &highlight_word_left  &highlight_word_right  &highlight_row  &none  &kp DEL
-&trans  &redo       &tab_prev   &tab_next      &none          &none               &kp LEFT_ARROW  &kp DOWN_ARROW        &kp UP_ARROW           &kp RIGHT       &none  &none
-&trans  &kp K_UNDO  &kp K_CUT   &kp K_COPY     &kp K_PASTE    &none               &none           &kp PAGE_DOWN         &kp PAGE_UP            &none           &none  &none
-                                &trans         &trans         &trans              &trans          &trans                &trans
+&trans  &none       &kp K_BACK  &kp K_FORWARD  &kp K_REFRESH  &kp K_CALCULATOR    &highlight_word_left  &none           &highlight_row  &highlight_word_right  &none     &kp DEL
+&trans  &redo       &tab_prev   &tab_next      &none          &none               &kp LEFT_ARROW        &kp DOWN_ARROW  &kp UP_ARROW    &kp RIGHT              &kp HOME  &kp END
+&trans  &kp K_UNDO  &kp K_CUT   &kp K_COPY     &kp K_PASTE    &none               &none                 &kp PAGE_DOWN   &kp PAGE_UP     &none                  &none     &none
+                                &trans         &trans         &trans              &trans                &trans          &trans
             >;
         };
 
