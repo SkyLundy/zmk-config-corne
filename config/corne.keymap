@@ -450,7 +450,7 @@
 
             bindings = <
 &trans  &none       &kp K_BACK  &kp K_FORWARD  &kp K_REFRESH  &kp K_CALCULATOR    &none           &highlight_word_left  &highlight_word_right  &highlight_row  &none  &kp DEL
-&trans  &none       &tab_prev   &tab_next      &none          &none               &kp LEFT_ARROW  &kp DOWN_ARROW        &kp UP_ARROW           &kp RIGHT       &none  &none
+&trans  &redo       &tab_prev   &tab_next      &none          &none               &kp LEFT_ARROW  &kp DOWN_ARROW        &kp UP_ARROW           &kp RIGHT       &none  &none
 &trans  &kp K_UNDO  &kp K_CUT   &kp K_COPY     &kp K_PASTE    &none               &none           &kp PAGE_DOWN         &kp PAGE_UP            &none           &none  &none
                                 &trans         &trans         &trans              &trans          &trans                &trans
             >;
