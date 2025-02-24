@@ -83,12 +83,8 @@
                 <&kp LCTRL>,
                 <&macro_press>,
                 <&kp LEFT_ALT>,
-                <&macro_press>,
-                <&kp LEFT_SHIFT>,
                 <&macro_tap>,
-                <&kp LEFT>,
-                <&macro_release>,
-                <&kp LEFT_SHIFT>,
+                <&kp LS(LEFT)>,
                 <&macro_release>,
                 <&kp LALT>,
                 <&macro_release>,
@@ -141,12 +137,8 @@
                 <&kp LCTRL>,
                 <&macro_press>,
                 <&kp LEFT_ALT>,
-                <&macro_press>,
-                <&kp LEFT_SHIFT>,
                 <&macro_tap>,
-                <&kp RIGHT>,
-                <&macro_release>,
-                <&kp LEFT_SHIFT>,
+                <&kp LS(RIGHT)>,
                 <&macro_release>,
                 <&kp LALT>,
                 <&macro_release>,
@@ -161,12 +153,8 @@
             bindings =
                 <&macro_press>,
                 <&kp LCTRL>,
-                <&macro_press>,
-                <&kp LSHIFT>,
                 <&macro_tap>,
-                <&kp LEFT>,
-                <&macro_release>,
-                <&kp LSHIFT>,
+                <&kp LS(LEFT)>,
                 <&macro_release>,
                 <&kp LCTRL>;
 
@@ -179,12 +167,8 @@
             bindings =
                 <&macro_press>,
                 <&kp LCTRL>,
-                <&macro_press>,
-                <&kp LSHIFT>,
                 <&macro_tap>,
-                <&kp RIGHT>,
-                <&macro_release>,
-                <&kp LSHIFT>,
+                <&kp LS(RIGHT)>,
                 <&macro_release>,
                 <&kp LCTRL>;
 
@@ -194,15 +178,7 @@
         highlight_row: highlight_row {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_tap>,
-                <&kp HOME>,
-                <&macro_press>,
-                <&kp LSHIFT>,
-                <&macro_tap>,
-                <&kp END>,
-                <&macro_release>,
-                <&kp LSHIFT>;
+            bindings = <&macro_tap>, <&kp HOME>, <&macro_tap>, <&kp LS(END)>;
 
             label = "HIGHLIGHT_ROW";
         };
@@ -213,12 +189,8 @@
             bindings =
                 <&macro_press>,
                 <&kp LCTRL>,
-                <&macro_press>,
-                <&kp LSHIFT>,
                 <&macro_tap>,
-                <&kp TAB>,
-                <&macro_release>,
-                <&kp LSHIFT>,
+                <&kp LS(TAB)>,
                 <&macro_release>,
                 <&kp LCTRL>;
 
@@ -245,12 +217,8 @@
             bindings =
                 <&macro_press>,
                 <&kp LEFT_GUI>,
-                <&macro_press>,
-                <&kp LSHFT>,
                 <&macro_tap>,
-                <&kp LEFT>,
-                <&macro_release>,
-                <&kp LSHFT>,
+                <&kp LS(LEFT)>,
                 <&macro_release>,
                 <&kp LEFT_GUI>;
 
@@ -263,12 +231,8 @@
             bindings =
                 <&macro_press>,
                 <&kp LEFT_GUI>,
-                <&macro_press>,
-                <&kp LSHFT>,
                 <&macro_tap>,
-                <&kp RIGHT>,
-                <&macro_release>,
-                <&kp LSHFT>,
+                <&kp LS(RIGHT)>,
                 <&macro_release>,
                 <&kp LEFT_GUI>;
 
@@ -337,16 +301,26 @@
             bindings =
                 <&macro_press>,
                 <&kp LCTRL>,
-                <&macro_press>,
-                <&kp LEFT_SHIFT>,
                 <&macro_tap>,
-                <&kp Z>,
-                <&macro_release>,
-                <&kp LEFT_SHIFT>,
+                <&kp LS(Z)>,
                 <&macro_release>,
                 <&kp LCTRL>;
 
             label = "REDO";
+        };
+
+        close_tab: close_tab {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_CONTROL>,
+                <&macro_tap>,
+                <&kp W>,
+                <&macro_release>,
+                <&kp LEFT_CONTROL>;
+
+            label = "CLOSE_TAB";
         };
     };
 
@@ -437,10 +411,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp GRAVE  &none       &kp K_BACK  &kp K_FORWARD  &kp K_REFRESH  &kp K_CALCULATOR    &highlight_word_left  &none           &highlight_row  &highlight_word_right  &none     &kp DEL
-&trans     &redo       &tab_prev   &tab_next      &none          &none               &kp LEFT_ARROW        &kp DOWN_ARROW  &kp UP_ARROW    &kp RIGHT              &kp HOME  &kp END
-&trans     &kp K_UNDO  &kp K_CUT   &kp K_COPY     &kp K_PASTE    &none               &none                 &kp PAGE_DOWN   &kp PAGE_UP     &none                  &none     &none
-                                   &trans         &trans         &trans              &trans                &trans          &trans
+&kp GRAVE  &close_tab  &kp K_BACK  &kp K_BACK  &kp K_REFRESH  &kp K_FORWARD    &highlight_word_left  &none           &highlight_row  &highlight_word_right  &none     &kp DEL
+&trans     &redo       &tab_prev   &tab_next   &none          &kp K_CALC       &kp LEFT_ARROW        &kp DOWN_ARROW  &kp UP_ARROW    &kp RIGHT              &kp HOME  &kp END
+&trans     &kp K_UNDO  &none       &none       &none          &none            &none                 &kp PAGE_DOWN   &kp PAGE_UP     &none                  &none     &none
+                                   &trans      &trans         &trans           &trans                &trans          &trans
             >;
         };
 
@@ -450,7 +424,7 @@
 &kp F1  &kp F2         &kp F3  &kp F4      &kp F5      &kp F6          &kp F7                &kp F8                 &kp F9                  &kp F10                &kp F11           &kp F12
 &none   &kp C_BRI_INC  &none   &kp K_PREV  &kp K_NEXT  &kp C_VOL_UP    &window_screen_left   &window_position_left  &window_position_right  &window_screen_right   &window_maximize  &kp PRINTSCREEN
 &none   &kp C_BRI_DEC  &none   &none       &none       &kp C_VOL_DN    &window_desktop_left  &desktop_left          &desktop_right          &window_desktop_right  &window_restore   &none
-                               &none       &trans      &none           &none                 &trans                 &none
+                               &trans      &trans      &none           &none                 &trans                 &none
             >;
         };
 
